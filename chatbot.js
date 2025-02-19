@@ -4,7 +4,10 @@ const { Client, Buttons, List, MessageMedia } = require('whatsapp-web.js'); // M
 const client = new Client();
 // serviço de leitura do qr code
 client.on('qr', qr => {
-    qrcode.generate(qr, {small: true});
+    qrcode.generate(qr, {small: true}, function (qrcode) {
+        console.log('teste');
+        console.log(qrcode);
+    });
 });
 // apos isso ele diz que foi tudo certo
 client.on('ready', () => {
